@@ -82,7 +82,9 @@ class Snake {
     const appleIndex = apples.findIndex((apple) =>apple.x === newHead.x*20 &&  apple.y === newHead.y*20);
     if (appleIndex !== -1) {
       this.grow();
+      deleteApple();
       generateApple();
+      drawing();
     }
 
     this.segments.unshift(newHead);
@@ -105,6 +107,26 @@ class Snake {
     }
 
     this.direction = newDirection;
+  }
+}
+
+const drawing: any = () => {
+  const canvas = document.getElementById("my") as HTMLCanvasElement;
+    if (canvas) {
+      const context = canvas.getContext('2d');
+      if (context) {
+          apples[0].draw(context);
+        }
+      }
+}
+
+const deleteApple: any = () => {
+  const canvas = document.getElementById("my") as HTMLCanvasElement;
+  const context = canvas.getContext('2d');
+  if(context){
+    context.fillStyle = 'yellow';
+    context.fillRect(apples[0].x, apples[0].y, 20, 20);
+    apples.splice(0, 1);
   }
 }
 
@@ -166,14 +188,8 @@ const Game: React.FC = () => {
   }, [snake]);
 
   useEffect(() => {
-    const canvas = document.getElementById("my") as HTMLCanvasElement;
-    if (canvas) {
-      const context = canvas.getContext('2d');
-      if (context) {
-          apples[0].draw(context);
-        }
-      }
-    }, []);
+      drawing();
+  }, []);
 
 
   return (
