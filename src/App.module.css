@@ -29,5 +29,45 @@
 }
 
 .canvas{
-  background-color: yellow;
+  background-image: url(https://img.freepik.com/premium-vector/grass-lawn-abstract-seamless-background-game-asset-pattern-natural-field-herbs-top-view_191307-627.jpg);
+  border: 1px solid black;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction:row;
+}
+
+@font-face {
+  font-family: Modak;
+  src: url(../public/Modak-Regular.ttf);
+}
+
+@font-face {
+  font-family: JotiOne;
+  src: url(../public/JotiOne-Regular.ttf);
+}
+
+.score{
+  margin-left: auto;
+  margin-right: auto;
+  border: thin solid black;
+  border-radius: 50px;
+  height: 400px;
+  width: 400px;
+}
+
+.mainName{
+  text-align: center;
+  font-size: 50px;
+  font-family: "Modak";
+  color: green;
+}
+
+.raiting{
+  color: black;
+  margin-left: 30px;
+  font-family: "JotiOne";
+  font-size: 25px;
+  font-weight: bold;
 }
